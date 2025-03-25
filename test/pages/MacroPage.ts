@@ -1,21 +1,29 @@
-import BasePage from './BasePage';
-import { macroLocators } from '../locators/macroLocators';
+import { macroLocators } from '../locators/MacroLocators';
+import { homeLocators } from '../locators/HomeLocators';
 
+import { $ } from '@wdio/globals'
 
-class MacroPage extends BasePage {
-    async addMacro(): Promise<void> {
-        await this.click(macroLocators.macroButton);
-        await this.click(macroLocators.triggerButton);
-        await this.click(macroLocators.applicationOption);
-        await this.click(macroLocators.appInstallRemoveUpdate);
-        await this.click(macroLocators.applicationRemoved);
-        await this.click(macroLocators.anyApplication);
-        await this.click(macroLocators.okButton);
-        await this.click(macroLocators.actionButton);
-        await this.click(macroLocators.loggingOption);
-        await this.click(macroLocators.clearLog);
-        await this.click(macroLocators.systemLog);
-        await this.click(macroLocators.okButton);
+class MacroPage {
+    async open() {
+        await $(homeLocators.macroButton).click();
+    }
+
+    async addTrigger() {
+        await $(macroLocators.addTriggerButton).click();
+    }
+
+    async addAction() {
+        await $(macroLocators.addActionButton).click();
+    }
+
+    async addConstraint() {
+        await $(macroLocators.addConstraintButton).click();
+    }
+
+    async addLocalVariable() {
+        await $(macroLocators.localVarButton).click();
+        await $(macroLocators.addLocalVarButton).click();
     }
 }
+
 export default new MacroPage();
