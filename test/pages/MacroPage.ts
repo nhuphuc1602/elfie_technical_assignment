@@ -1,28 +1,28 @@
-import { macroLocators } from '../locators/MacroLocators';
-import { homeLocators } from '../locators/HomeLocators';
+import { MacroLocators } from '../locators/MacroLocators';
+import { HomeLocators } from '../locators/HomeLocators';
 
 import { $ } from '@wdio/globals'
 
 class MacroPage {
     async open() {
-        await $(homeLocators.macroButton).click();
+        await $(HomeLocators.macroButton).click();
     }
 
     async addTrigger() {
-        await $(macroLocators.addTriggerButton).click();
+        await $(MacroLocators.addTriggerButton).click();
     }
 
     async addAction() {
-        await $(macroLocators.addActionButton).click();
+        await $(MacroLocators.addActionButton).click();
     }
 
     async addConstraint() {
-        await $(macroLocators.addConstraintButton).click();
+        await $(MacroLocators.addConstraintButton).click();
     }
 
     async addLocalVariable() {
-        await $(macroLocators.localVarButton).click();
-        await $(macroLocators.addLocalVarButton).click();
+        await $(MacroLocators.localVarButton).click();
+        await $(MacroLocators.addLocalVarButton).click();
     }
 }
 

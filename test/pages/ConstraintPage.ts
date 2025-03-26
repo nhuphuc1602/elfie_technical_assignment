@@ -1,12 +1,12 @@
 import { $ } from '@wdio/globals'
-import { macroConstraintsLocators } from '../locators/MacroConstraintsLocators'
+import { MacroConstraintsLocators } from '../locators/MacroConstraintsLocators'
 
 class ConstraintsPage {
     async selectAirplaneModeConstraint() {
-        await $(macroConstraintsLocators.deviceStateButton).click();
-        await $(macroConstraintsLocators.airplanemodeButton).click();
-        await $(macroConstraintsLocators.airplanemodeDisabledRadioButton).click();
-        await $(macroConstraintsLocators.okButton).click();
+        await $(MacroConstraintsLocators.deviceStateButton).click();
+        await $(MacroConstraintsLocators.airplanemodeButton).click();
+        await $(MacroConstraintsLocators.airplanemodeDisabledRadioButton).click();
+        await $(MacroConstraintsLocators.okButton).click();
     }
 }
 

@@ -1,14 +1,21 @@
 import { $ } from '@wdio/globals'
-import { macroTriggerLocators } from '../locators/MacroTriggerLocators'
+import { MacroTriggerLocators } from '../locators/MacroTriggerLocators'
 
 class TriggerPage {
     async selectApplicationTrigger() {
-        await $(macroTriggerLocators.applicationButton).click();
-        await $(macroTriggerLocators.appInstallRemoveUpdateButton).click();
-        await $(macroTriggerLocators.appRemoveRadioButton).click();
-        await $(macroTriggerLocators.okButton).click();
-        await $(macroTriggerLocators.anyAppRadioButton).click();
-        await $(macroTriggerLocators.okButton).click();
+        await $(MacroTriggerLocators.applicationButton).click();
+        await $(MacroTriggerLocators.appInstallRemoveUpdateButton).click();
+        await $(MacroTriggerLocators.appRemoveRadioButton).click();
+        await $(MacroTriggerLocators.okButton).click();
+        await $(MacroTriggerLocators.anyAppRadioButton).click();
+        await $(MacroTriggerLocators.okButton).click();
+    }
+
+    async selectChangeDarkThemeTrigger() {
+        await $(MacroTriggerLocators.deviceEventsButton).click();
+        await $(MacroTriggerLocators.darkThemeChangeButton).click();
+        await $(MacroTriggerLocators.disabledRadioButton).click();
+        await $(MacroTriggerLocators.okButton).click();
     }
 }
 

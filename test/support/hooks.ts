@@ -1,28 +1,33 @@
-import { Before, After, BeforeAll, AfterAll } from '@wdio/cucumber-framework';
-import { browser } from '@wdio/globals';
+import { Before, After, AfterAll, AfterStep, Status as TestStepResultStatus } from '@cucumber/cucumber';
+import { BaseTest } from '../support/BaseTest';
+import LandingPage from '../pages/LandingPage';
+import allure from '@wdio/allure-reporter';
 
-// Trước tất cả test, đảm bảo server Appium đang chạy
-BeforeAll(async () => {
-    console.log("🚀 Starting mobile tests...");
-});
+const baseTest = new BaseTest();
 
-// Trước mỗi scenario, mở app
-Before(async (scenario) => {
-    console.log(`🔹 Starting scenario: ${scenario.pickle.name}`);
-    await browser.launchApp();  // Mở app
-});
-
-// Sau mỗi scenario, chụp màn hình nếu lỗi
-After(async (scenario) => {
-    console.log(`✅ Finished scenario: ${scenario.pickle.name}`);
-    if (scenario.result?.status === 'failed') {
-        const screenshot = await browser.takeScreenshot();
-        await browser.saveScreenshot(`./screenshots/${scenario.pickle.name}.png`);
+Before(async function () {
+    console.log('Setting up test suite...');
+    await baseTest.test_setup();
+    try { 
+        await LandingPage.skipLandingPage(); 
+    } catch (error) {
+        console.warn("Skipping landing page failed:", error);
     }
-    await browser.closeApp();  // Đóng app sau mỗi test
 });
 
-// Sau tất cả test, dọn dẹp
-AfterAll(async () => {
-    console.log("🛑 All mobile tests completed.");
+After(async function () {
+    console.log('Tearing down test suite...');
+    await baseTest.teardown();
 });
+
+AfterStep(async function (scenario) {
+    if (scenario.result?.status === TestStepResultStatus.FAILED) {
+        const screenshot = await browser.takeScreenshot();
+        allure.addAttachment('Screenshot on Failure', Buffer.from(screenshot, 'base64'), 'image/png');
+    }
+});
+
+// AfterAll(async function () {
+//     console.log('Tearing down test environment...');
+//     await baseTest.teardown();
+// });

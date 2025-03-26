@@ -1,4 +1,4 @@
-export const macroConstraintsLocators = {
+export const MacroConstraintsLocators = {
     addConstraintTitle: '//android.widget.TextView[@text="Add constraint"]]',
     deviceStateButton: '//android.widget.TextView[@resource-id="com.arlosoft.macrodroid:id/category_name" and @text="Device State"]',
     airplanemodeButton: '//android.widget.TextView[@resource-id="com.arlosoft.macrodroid:id/select_item_name" and @text="Airplane Mode"]',
