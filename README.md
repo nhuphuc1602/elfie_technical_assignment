@@ -66,7 +66,6 @@ The project is organized as follows:
 - **`/config.ts`**: Configuration file for Appium and WebDriverIO settings.
 - **`wdio.conf.ts`**: WebDriverIO configuration file for running tests.
 
-This structure ensures a clear separation of test cases, configurations, and reports, making the framework easy to maintain and extend.
 ---
 
 ## Additional Test Cases
