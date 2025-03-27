@@ -11,7 +11,6 @@ This project is an automation testing framework for the MacroDroid application u
 - [Generate Allure Report](#generate-allure-report)
 - [View Allure Report](#view-allure-report)
 
----
 
 ## Tech Stack
 This project utilizes the following technologies:
@@ -30,16 +29,54 @@ This project utilizes the following technologies:
 ✅ **BDD Support** – Test scenarios written in Gherkin format  
 ✅ **Soft Assert** – Collects assertion failures without stopping test execution and reports them at the end of the test case.  
 ✅ **Take Screenshot** – Take screenshot every time step fails and attach to Allure report, applies to Soft Assert as well.  
+
+---
+
+## Design Principles
+
+This project follows the **Page Object Model (POM)** design pattern to enhance maintainability and scalability. The key principles applied are:
+
+- **Page Object Model (POM):**  
+    Each page or screen of the MacroDroid application is represented as a separate class. These classes encapsulate the elements and actions related to the respective page, ensuring a clear separation of concerns. This approach makes the test scripts more readable and easier to maintain.
+
+- **Reusable Components:**  
+    Common functionalities, such as navigation or shared UI elements, are abstracted into reusable components to avoid duplication and promote code reuse.
+
+- **Single Responsibility Principle:**  
+    Each class or module is designed to handle a single responsibility, such as managing a specific page or providing utility functions. This makes the codebase easier to understand and extend.
+
+- **Encapsulation:**  
+    Page classes expose only the necessary methods to interact with the page, hiding the implementation details of element locators and actions. This ensures that changes to the UI structure require minimal updates to the test scripts.
+
+- **Modular Configuration:**  
+    The configuration settings, such as Appium capabilities and framework options, are modularized in `config.ts` to allow easy customization and environment switching.
+
+---
+
+## Project Structure
+
+The project is organized as follows:
+
+- **`/test/specs`**: Contains Mocha test cases written in TypeScript.
+- **`/test/features`**: Contains Cucumber (BDD) test cases written in Gherkin format.
+- **`/test/steps`**: Contains step definitions for Cucumber (BDD) test cases.
+- **`/test/support`**: Contains utility functions, hooks, and shared modules to support test execution.
+- **`/test/reports`**: Stores test execution reports, including Allure results.
+- **`/test/apps`**: Contains the MacroDroid APK file used for testing.
+- **`/config.ts`**: Configuration file for Appium and WebDriverIO settings.
+- **`wdio.conf.ts`**: WebDriverIO configuration file for running tests.
+
+This structure ensures a clear separation of test cases, configurations, and reports, making the framework easy to maintain and extend.
 ---
 
 ## Additional Test Cases
 
 Two additional test cases have been implemented in this project:
 
-1. **Test Case 1:** [Describe new test case functionality]
-2. **Test Case 2:** [Describe new test case functionality]
+1. **Test Case 3:** Verify that the user is able to add a macro with Macro Wizard (add Triggers and Actions without Constraints)
+2. **Test Case 4:** Verify that the user is able to delete a macro in Macros Tab
 
-These test cases follow best practices and have been integrated into the automation framework.
+You can see more details about these test cases in testcase/Elfie test.docx
 
 ---
 
