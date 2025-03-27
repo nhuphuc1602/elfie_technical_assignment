@@ -4,9 +4,9 @@ This project is an automation testing framework for the MacroDroid application u
 
 ## Table of Contents
 - [Tech Stack](#tech-stack)
-- [Setup Environment](#setup-environment)
 - [Features Implemented](#features-implemented)
 - [Additional Test Cases](#additional-test-cases)
+- [Setup Environment](#setup-environment)
 - [How to Run Tests](#how-to-run-tests)
 - [Generate Allure Report](#generate-allure-report)
 - [View Allure Report](#view-allure-report)
@@ -28,8 +28,8 @@ This project utilizes the following technologies:
 ✅ **Implement 4 Test Cases** – Automated 4 test scenarios for MacroDroid app  
 ✅ **HTML Reports** – Allure report generation for better visualization  
 ✅ **BDD Support** – Test scenarios written in Gherkin format  
-✅ **Data-Driven Testing** – Supports executing tests with multiple datasets  
-
+✅ **Soft Assert** – Collects assertion failures without stopping test execution and reports them at the end of the test case.  
+✅ **Take Screenshot** – Take screenshot every time step fails and attach to Allure report, applies to Soft Assert as well.  
 ---
 
 ## Additional Test Cases
@@ -129,6 +129,12 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
    npx wdio wdio.conf.ts
    ```
 
+   To run a specific test scenarios, you can pass test case ID to the command:
+    ```bash
+   npx wdio wdio.conf.ts --cucumberOpts.tagExpression="TC1"
+    ```
+   Note: Ensure you change framework to "cucumber" in config.ts  
+
 ---
 
 ## Generate Allure Report
@@ -152,7 +158,7 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
 1. **Serve the Report**  
    To view the generated Allure report in your browser:
    ```bash
-   allure open ./test/reports/allure-results
+   allure open ./allure-report
    ```
 
 2. **Access the Report**  

@@ -1,1 +1,5 @@
-node_modules
+node_modules/
+recording/
+allure-report/
+test/reports/allure-results/*.png
+test/reports/allure-results/*.json

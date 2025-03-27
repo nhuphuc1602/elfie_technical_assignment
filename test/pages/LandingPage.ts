@@ -3,6 +3,7 @@ import { LandingLocators } from '../locators/LandingLocators'
 
 class LandingPage {
     async skipLandingPage() {
+        await browser.pause(3000);
         await $(LandingLocators.skipButton).waitForDisplayed();
         await $(LandingLocators.skipButton).click();
         await $(LandingLocators.skipBuyButton).waitForDisplayed();
@@ -18,13 +19,18 @@ class LandingPage {
         await $(LandingLocators.adTitle).waitForDisplayed();
         try {  
             await $(LandingLocators.skipAdButton).waitForDisplayed(); 
-            await browser.pause(5000);
+            await browser.pause(6000);
             await $(LandingLocators.skipAdButton).click();
         } catch {}
         try {  
             await $(LandingLocators.skipAd2Button).waitForDisplayed(); 
-            await browser.pause(5000);
+            await browser.pause(6000);
             await $(LandingLocators.skipAd2Button).click();
+        } catch {}
+        try {  
+            await $(LandingLocators.skipAd3Button).waitForDisplayed(); 
+            await browser.pause(6000);
+            await $(LandingLocators.skipAd3Button).click();
         } catch {}
 
     }
@@ -32,7 +38,7 @@ class LandingPage {
     async skipUpgrade() {
         await $(LandingLocators.upgradeNowButton).waitForDisplayed();
         await $(LandingLocators.closeButton).waitForDisplayed();
-        await browser.pause(5000);
+        await browser.pause(6000);
         await $(LandingLocators.closeButton).click();
     }
 }
