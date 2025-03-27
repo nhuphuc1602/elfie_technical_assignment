@@ -1,6 +1,6 @@
 // config.ts
 export const appiumConfig = {
-    framework: 'cucumber',
+    framework: 'mocha',
     appPath: './test/apps/Final_Exam_MacroDroid.apk',
     deviceName: 'pixel_emulator',
     platformVersion: '15.0',
