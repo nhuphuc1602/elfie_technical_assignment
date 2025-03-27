@@ -39,11 +39,6 @@ describe('MacroDroid Automation', () => {
         await baseTest.teardown();
     });
 
-    // after(async () => {
-    //     console.log('Tearing down test environment...');
-    //     await baseTest.teardown();
-    // });
-
     it('TC1: Verify that the user is able to add a macro (dont need to add macro name) (add 3 macros)', async () => {
         console.log('Open Macro Page');
         await MacroPage.open();

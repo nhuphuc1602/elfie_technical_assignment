@@ -24,7 +24,8 @@ This project utilizes the following technologies:
 
 ## Features Implemented
 
-✅ **Soft Assertions** – Allows flexible validation of test results  
+✅ **Create WebDriverIO Framework** – Built with TypeScript, Appium, and WebDriverIO for mobile automation
+✅ **Implement 4 Test Cases** – Automated 4 test scenarios for MacroDroid app
 ✅ **HTML Reports** – Allure report generation for better visualization  
 ✅ **BDD Support** – Test scenarios written in Gherkin format  
 ✅ **Data-Driven Testing** – Supports executing tests with multiple datasets  
