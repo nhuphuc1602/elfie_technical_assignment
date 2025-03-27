@@ -163,4 +163,5 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
 ## Notes
 - Ensure the Android emulator or real device is running before executing tests.
 - If you encounter issues with permissions, set `autoGrantPermissions` to `true` in `wdio.conf.ts`.
-- Submissions should include source code and a video recording of test execution, either via screen recording (for emulators) or external recording (for real devices).
+- If you have any questions or issues regarding the framework or automation execution, feel free to contact me via email: <nhuphuc1602@gmail.com>.  
+
