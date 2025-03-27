@@ -137,12 +137,6 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
    - Ensure the emulator is running before executing tests.
    - For real devices, input the correct device information and ensure it is connected.
 
-7. **Verify Appium Installation**  
-   Start the Appium server to ensure it is installed correctly:
-   ```bash
-   appium
-   ```
-
 ---
 
 ## How to Run Tests
