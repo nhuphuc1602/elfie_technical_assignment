@@ -75,7 +75,7 @@ Two additional test cases have been implemented in this project:
 1. **Test Case 3:** Verify that the user is able to add a macro with Macro Wizard (add Triggers and Actions without Constraints)
 2. **Test Case 4:** Verify that the user is able to delete a macro in Macros Tab
 
-You can see more details about these test cases in testcase/Elfie test.docx
+You can see more details about these test cases in testcase/test_case.txt or pdf
 
 ---
 

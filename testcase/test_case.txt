@@ -1,0 +1,42 @@
+﻿New Test Cases for MacroDroid Android App Automation
+________________
+
+
+Test Case 3: Verify that the user is able to add a macro using the Macro Wizard (Adding Triggers and Actions without Constraints)
+Test Objective:
+Ensure that users can successfully create a macro using the Macro Wizard, adding triggers and actions without constraints.
+Test Steps:
+1. Launch the MacroDroid application.
+2. Navigate to the "Add Macro Wizard" menu.
+3. In the "Trigger" tab, tap on "Device Events."
+4. Select "Dark Theme Change."
+5. Choose the "Disabled" radio button and confirm by tapping "OK."
+6. Switch to the "Actions" tab.
+7. Tap on "Date/Time."
+8. Select "Stopwatch."
+9. Choose "New Stopwatch" radio button and confirm by tapping "OK."
+10. Enter a name for the stopwatch and confirm by tapping "OK."
+11. Select "Pause" radio button and confirm by tapping "OK."
+12. Tap the "Accept" button to finalize the macro setup.
+13. Enter a macro name and confirm by tapping "OK" (Skip ad if prompted).
+Expected Results:
+* Step #5: The Trigger Macro should correctly reflect the selected trigger settings.
+* Step #11: The Action Macro should display the correct action configurations.
+* Step #13: The newly created macro should be successfully added and visible in the Macros tab, displaying the correct Trigger and Action without Constraints.
+________________
+
+
+Test Case 4: Verify that the user is able to delete a macro from the Macros Tab after creation
+Test Objective:
+Ensure that users can successfully delete an existing macro from the Macros tab.
+Precondition:
+* At least one macro is already created and available in the Macros tab.
+Test Steps:
+1. Launch the MacroDroid application.
+2. Navigate to the "Add Macro Wizard" menu.
+3. Switch to the "Macros" tab.
+4. Locate and tap on the macro that needs to be deleted.
+5. Tap on the three-dot menu button.
+6. Select "Delete Macro" and confirm the deletion by tapping "OK."
+Expected Results:
+* Step #6: The selected macro should be successfully deleted and no longer visible in the Macros tab.
