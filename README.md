@@ -98,8 +98,8 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
    export const appiumConfig = {
        framework: process.env.TEST_FRAMEWORK || 'mocha', // Change to 'cucumber' for BDD tests
        appPath: './test/apps/Final_Exam_MacroDroid.apk',
-       deviceName: process.env.DEVICE_NAME || 'pixel_simulator',
-       platformVersion: process.env.PLATFORM_VERSION || '15.0',
+       deviceName: process.env.DEVICE_NAME || 'pixel_simulator', //Input your device's name
+       platformVersion: process.env.PLATFORM_VERSION || '15.0', //Input android version of your device
        appPackage: 'com.arlosoft.macrodroid',
        appWaitActivity: 'com.arlosoft.macrodroid.intro.IntroActivity',
        appiumPort: 4723,
@@ -110,7 +110,7 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
        }
    };
    ```
-   This configuration allows switching between Mocha and BDD by modifying `TEST_FRAMEWORK` in environment variables.
+   This configuration allows switching between Mocha and BDD by modifying `framework`.
 
 3. **Install Dependencies**  
    Run the following command in the project root directory to install all required dependencies:
