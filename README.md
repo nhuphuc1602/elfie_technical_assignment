@@ -196,6 +196,10 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
 
 ---
 
+##Recording
+[Link](https://docs.google.com/document/d/1tscPfUHUM74LugG9kBdVk8xlpDIVAuYk/edit?usp=sharing&ouid=108246512610334012933&rtpof=true&sd=true)
+
+---
 ## Notes
 - Ensure the Android emulator or real device is running before executing tests.  
 - In case of installation or launch app issues, try deleting the required app if it’s already installed on your device.  
