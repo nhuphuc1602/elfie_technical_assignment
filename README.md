@@ -196,8 +196,8 @@ You can modify the `config.ts` file to switch between Mocha and Cucumber framewo
 
 ---
 
-##Recording
-[Link](https://docs.google.com/document/d/1tscPfUHUM74LugG9kBdVk8xlpDIVAuYk/edit?usp=sharing&ouid=108246512610334012933&rtpof=true&sd=true)
+## Recording
+[Link](https://drive.google.com/drive/folders/13L7gmJHDwSlah2a97Rzt7WxDTlw3uEj1?usp=sharing)
 
 ---
 ## Notes
