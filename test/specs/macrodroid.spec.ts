@@ -144,75 +144,74 @@ describe('MacroDroid Automation', () => {
         await page.softAssert(async() => await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description'));
 
         page.checkSoftAssertions();
-});
+    });
 
-it('TC3: Verify that the user is able to add a macro with Macro Wizard (add Triggers and Actions without Constraints)', async () => {
-    console.log('Tap On Add Macro Wizard Button');
-    await MacroWizardPage.open();
-    
-    console.log('Add Trigger - Change Dark Theme');
-    await TriggerPage.selectChangeDarkThemeTrigger();
+    it('TC3: Verify that the user is able to add a macro with Macro Wizard (add Triggers and Actions without Constraints)', async () => {
+        console.log('Tap On Add Macro Wizard Button');
+        await MacroWizardPage.open();
+        
+        console.log('Add Trigger - Change Dark Theme');
+        await TriggerPage.selectChangeDarkThemeTrigger();
 
-    console.log('Tap on Action Tab');
-    await MacroWizardPage.tapOnActionTab();
+        console.log('Tap on Action Tab');
+        await MacroWizardPage.tapOnActionTab();
 
-    console.log('Add Action - Stopwatch');
-    await ActionPage.selectStopwatchAction('stopwatch');
+        console.log('Add Action - Stopwatch');
+        await ActionPage.selectStopwatchAction('stopwatch');
 
-    console.log('Tap Add Macro Wizard Button');
-    await MacroWizardPage.tapAcceptButton();
+        console.log('Tap Add Macro Wizard Button');
+        await MacroWizardPage.tapAcceptButton();
 
-    console.log('Enter Macros Name');
-    await MacroWizardPage.enterMacroName('testing');
+        console.log('Enter Macros Name');
+        await MacroWizardPage.enterMacroName('testing');
 
-    console.log('Skip AD If Show');
-    try { await LandingPage.skipAD(); } catch {}
-    try { await LandingPage.skipUpgrade(); } catch {}
-    try { await LandingPage.skipBuyingPage(); } catch {}
+        console.log('Skip AD If Show');
+        try { await LandingPage.skipAD(); } catch {}
+        try { await LandingPage.skipUpgrade(); } catch {}
+        try { await LandingPage.skipBuyingPage(); } catch {}
 
-    console.log('Tap On Macros Tab In Homepage');
-    await $(HomeLocators.macrosTab).click();
+        console.log('Tap On Macros Tab In Homepage');
+        await $(HomeLocators.macrosTab).click();
 
-    console.log('Assert Created Macros On Macros Tab');
-    await expect($(HomeLocators.macrosNameText)).toHaveText('testing');
-    // await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description');
+        console.log('Assert Created Macros On Macros Tab');
+        await expect($(HomeLocators.macrosNameText)).toHaveText('testing');
+        // await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description');
 
-    console.log('Tap On Macros Tab In Homepage');
-    await $(HomeLocators.macrosNameText).click();
+        console.log('Tap On Macros Tab In Homepage');
+        await $(HomeLocators.macrosNameText).click();
 
-    console.log('Assert Created Trigger, Action in Macros');
-    await expect($(MacroLocators.macrotriggerwithName)).toHaveText('Dark Theme Change');
-    await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText('Disabled');
-    await expect($(MacroLocators.macroactionwithName)).toHaveText('Stopwatch (Pause)');
-    await expect($(MacroLocators.macroactionwithDetails)).toHaveText('stopwatch');
+        console.log('Assert Created Trigger, Action in Macros');
+        await expect($(MacroLocators.macrotriggerwithName)).toHaveText('Dark Theme Change');
+        await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText('Disabled');
+        await expect($(MacroLocators.macroactionwithName)).toHaveText('Stopwatch (Pause)');
+        await expect($(MacroLocators.macroactionwithDetails)).toHaveText('stopwatch');
 
-    
-});
+        
+    });
 
-it('TC4: Verify that the user is able to delete a macro in Macros Tab', async () => {
-    console.log('Add A Macro With Macro Wizard');
-    await MacroWizardPage.addMacro();
+    it('TC4: Verify that the user is able to delete a macro in Macros Tab', async () => {
+        console.log('Add A Macro With Macro Wizard');
+        await MacroWizardPage.addMacro();
 
-    console.log('Tap On Macros Tab In Homepage');
-    await $(HomeLocators.macrosTab).click();
+        console.log('Tap On Macros Tab In Homepage');
+        await $(HomeLocators.macrosTab).click();
 
-    console.log('Tap On Macros Tab In Homepage');
-    await $(HomeLocators.macrosNameText).click();
+        console.log('Tap On Macros Tab In Homepage');
+        await $(HomeLocators.macrosNameText).click();
 
-    console.log('Tap On More Options Button in Macros');
-    await $(MacroLocators.threeDotButton).click();
+        console.log('Tap On More Options Button in Macros');
+        await $(MacroLocators.threeDotButton).click();
 
-    console.log('Tap On Delete Macros Button in Macros');
-    await $(MacroLocators.deleteMacroButton).click();
-    await $(MacroLocators.okDeleteButton).click();
+        console.log('Tap On Delete Macros Button in Macros');
+        await $(MacroLocators.deleteMacroButton).click();
+        await $(MacroLocators.okDeleteButton).click();
 
-    console.log('Assert Trigger, Action in Macros Disappeared');
-    await expect($(MacroLocators.macrotriggerwithName)).not.toBeExisting();
-    await expect($(MacroLocators.macrotriggerwithDetails)).not.toBeExisting();
-    await expect($(MacroLocators.macroactionwithName)).not.toBeExisting();
-    await expect($(MacroLocators.macroactionwithDetails)).not.toBeExisting();
-    
-});
-
+        console.log('Assert Trigger, Action in Macros Disappeared');
+        await expect($(MacroLocators.macrotriggerwithName)).not.toBeExisting();
+        await expect($(MacroLocators.macrotriggerwithDetails)).not.toBeExisting();
+        await expect($(MacroLocators.macroactionwithName)).not.toBeExisting();
+        await expect($(MacroLocators.macroactionwithDetails)).not.toBeExisting();
+        
+    });
 
 });

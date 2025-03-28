@@ -1,26 +1,3 @@
-// export class BaseTest {
-//     async test_setup() {
-//         console.log("Opening app...");
-//         browser.activateApp('com.arlosoft.macrodroid');
-//         await browser.pause(3000);
-//     }
-
-//     async test_teardown() {
-//         console.log("Teardown test...");
-//         console.log("Terminate MacroDroid app...");
-//         await browser.terminateApp('com.arlosoft.macrodroid');
-//         await browser.pause(3000);
-//     }
-
-//     async teardown() {
-//         console.log("Teardown...");
-//         console.log("Removing MacroDroid app...");
-//         await browser.removeApp('com.arlosoft.macrodroid');
-//         await browser.pause(3000);
-//     }
-
-// }
-
 export class BaseTest {
     private appPackage = 'com.arlosoft.macrodroid';
     private appPath = './test/apps/Final_Exam_MacroDroid.apk';
