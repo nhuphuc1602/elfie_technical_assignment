@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@wdio/globals';
-import ActionBlockPage from '../pages/ActionBlockPage';
-import {ActionBlockLocator} from '../locators/ActionBlockLocator';
+import ActionBlockPage from '../pages/action-block.page';
+import {ActionBlockLocator} from '../locators/action-block.locators';
 
 Given('the user opens the Action Block Page', async () => {
     await ActionBlockPage.open();

@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { MacroActionLocators } from '../locators/MacroActionLocators';
+import { MacroActionLocators } from '../locators/macro-action.locators';
 
 class ActionPage {
     async selectLoggingAction() {

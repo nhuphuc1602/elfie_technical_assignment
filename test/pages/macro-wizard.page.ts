@@ -1,9 +1,9 @@
-import { HomeLocators } from '../locators/HomeLocators';
-import { MacroWizardLocators } from '../locators/MacroWizardLocator';
+import { HomeLocators } from '../locators/home.locators';
+import { MacroWizardLocators } from '../locators/macro-wizard.locators';
 
-import TriggerPage from '../pages/TriggerPage';
-import ActionPage from '../pages/ActionPage';
-import LandingPage from '../pages/LandingPage';
+import TriggerPage from './trigger.page';
+import ActionPage from '../pages/action.page';
+import LandingPage from '../pages/landing.page';
 
 import { $ } from '@wdio/globals'
 

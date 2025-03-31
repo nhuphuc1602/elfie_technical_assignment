@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { LandingLocators } from '../locators/LandingLocators'
+import { LandingLocators } from '../locators/landing.locators'
 
 class LandingPage {
     async skipLandingPage() {

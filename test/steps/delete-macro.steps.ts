@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import MacroWizardPage from '../pages/MacroWizardPage';
-import {HomeLocators} from '../locators/HomeLocators';
-import {MacroLocators} from '../locators/MacroLocators';
+import MacroWizardPage from '../pages/macro-wizard.page';
+import {HomeLocators} from '../locators/home.locators';
+import {MacroLocators} from '../locators/macro.locators';
 
 Given('the user has added a macro using Macro Wizard', async () => {
     await MacroWizardPage.addMacro();

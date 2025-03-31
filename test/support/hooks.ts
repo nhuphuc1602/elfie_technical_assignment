@@ -1,6 +1,6 @@
-import { Before, After, AfterAll, AfterStep, Status as TestStepResultStatus } from '@cucumber/cucumber';
+import { Before, After, AfterStep, Status as TestStepResultStatus } from '@cucumber/cucumber';
 import { BaseTest } from '../support/BaseTest';
-import LandingPage from '../pages/LandingPage';
+import LandingPage from '../pages/landing.page';
 import allure from '@wdio/allure-reporter';
 
 const baseTest = new BaseTest();
