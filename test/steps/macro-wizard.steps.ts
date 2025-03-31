@@ -1,10 +1,10 @@
 import { When, Then } from '@wdio/cucumber-framework';
-import MacroWizardPage from '../pages/MacroWizardPage';
-import TriggerPage from '../pages/TriggerPage';
-import ActionPage from '../pages/ActionPage';
-import LandingPage from '../pages/LandingPage';
-import {HomeLocators} from '../locators/HomeLocators';
-import {MacroLocators} from '../locators/MacroLocators';
+import MacroWizardPage from '../pages/macro-wizard.page';
+import TriggerPage from '../pages/trigger.page';
+import ActionPage from '../pages/action.page';
+import LandingPage from '../pages/landing.page';
+import {HomeLocators} from '../locators/home.locators';
+import {MacroLocators} from '../locators/macro.locators';
 
 When('I open the Macro Wizard', async () => {
     console.log('Tap On Add Macro Wizard Button');

@@ -1,5 +1,5 @@
-import { HomeLocators } from '../locators/HomeLocators';
-import { ActionBlockLocator } from '../locators/ActionBlockLocator';
+import { HomeLocators } from '../locators/home.locators';
+import { ActionBlockLocator } from '../locators/action-block.locators';
 
 import { $ } from '@wdio/globals'
 

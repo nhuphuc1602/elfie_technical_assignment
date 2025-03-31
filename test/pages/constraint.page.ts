@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { MacroConstraintsLocators } from '../locators/MacroConstraintsLocators'
+import { MacroConstraintsLocators } from '../locators/macro-constraints.locators'
 
 class ConstraintsPage {
     async selectAirplaneModeConstraint() {

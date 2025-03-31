@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { MacroTriggerLocators } from '../locators/MacroTriggerLocators'
+import { MacroTriggerLocators } from '../locators/macro-trigger.locators'
 
 class TriggerPage {
     async selectApplicationTrigger() {

@@ -1,0 +1,30 @@
+{
+  "TC1": {
+    "triggerName": "Application Removed",
+    "triggerDetails": "Any Application",
+    "actionName": "Clear Log",
+    "actionDetails": "System Log",
+    "constraintName": "Airplane Mode Disabled",
+    "localVarName": "Test Case",
+    "localVarValue": "1"
+  },
+  "TC2": {
+    "actionBlockName": "test name",
+    "actionBlockDescription": "test description",
+    "inputVarName": "inputvar",
+    "inputVarValue": "Default: True",
+    "actionName": "Clear Log",
+    "actionDetails": "System Log",
+    "outputVarName": "outputvar",
+    "outputVarInput": "This is a testing string",
+    "outputVarValue": "Default: This is a testing string"
+
+  },
+  "TC3": {
+    "macroName": "testing",
+    "triggerName": "Dark Theme Change",
+    "triggerDetails": "Disabled",
+    "actionName": "Stopwatch (Pause)",
+    "actionDetails": "stopwatch"
+  }
+}

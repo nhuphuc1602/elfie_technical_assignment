@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { MacroLocators } from '../locators/MacroLocators'
+import { MacroLocators } from '../locators/macro.locators'
 
 class LocalVarPage {
     async addIntegerVariable(name: string) {

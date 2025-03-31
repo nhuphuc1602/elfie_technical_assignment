@@ -1,20 +1,31 @@
 import { expect } from '@wdio/globals';
 import AllureReporter from '@wdio/allure-reporter';
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 
 import { BaseTest } from '../support/BaseTest';
-import { MacroLocators } from '../locators/MacroLocators';
-import { ActionBlockLocator } from '../locators/ActionBlockLocator';
-import { HomeLocators } from '../locators/HomeLocators';
+import { MacroLocators } from '../locators/macro.locators';
+import { ActionBlockLocator } from '../locators/action-block.locators';
+import { HomeLocators } from '../locators/home.locators';
 
-import BasePage from "../pages/BasePage";
-import MacroPage from '../pages/MacroPage';
-import TriggerPage from '../pages/TriggerPage';
-import ActionPage from '../pages/ActionPage';
-import ConstraintsPage from '../pages/ConstraintPage';
-import LocalVarPage from '../pages/LocalVarPage';
-import LandingPage from '../pages/LandingPage';
-import ActionBlockPage from '../pages/ActionBlockPage';
-import MacroWizardPage from '../pages/MacroWizardPage';
+import BasePage from "../pages/base.page";
+import MacroPage from '../pages/macro.page';
+import TriggerPage from '../pages/trigger.page';
+import ActionPage from '../pages/action.page';
+import ConstraintsPage from '../pages/constraint.page';
+import LocalVarPage from '../pages/local-var.page';
+import LandingPage from '../pages/landing.page';
+import ActionBlockPage from '../pages/action-block.page';
+import MacroWizardPage from '../pages/macro-wizard.page';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const testDataPath = path.resolve(__dirname, '../data/macrodroid_test_data.json');
+const testData = JSON.parse(fs.readFileSync(testDataPath, 'utf-8'));
 
 describe('MacroDroid Automation', () => {
     const baseTest = new BaseTest();
@@ -39,117 +50,103 @@ describe('MacroDroid Automation', () => {
         await baseTest.teardown();
     });
 
-    it('TC1: Verify that the user is able to add a macro (dont need to add macro name) (add 3 macros)', async () => {
+    it('TC1: Verify that the user is able to add a macro (add 3 macros)', async () => {
+        const data = testData.TC1;
+
         console.log('Open Macro Page');
         await MacroPage.open();
-    
+
         console.log('Add Trigger - Application Removed');
         await MacroPage.addTrigger();
         await TriggerPage.selectApplicationTrigger();
 
         console.log('Assert Created Trigger');
-        // await expect($(MacroLocators.macrotriggerwithName)).toHaveText('Application Removed');
-        // await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText('Any Application');
-
-
-        await page.softAssert(async () => await expect($(MacroLocators.macrotriggerwithName)).toHaveText('Application Removed'));
-        await page.softAssert(async () => await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText('Any Application'));
+        await page.softAssert(async () => await expect($(MacroLocators.macrotriggerwithName)).toHaveText(data.triggerName));
+        await page.softAssert(async () => await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText(data.triggerDetails));
 
         console.log('Add Action - Clear Log');
         await MacroPage.addAction();
         await ActionPage.selectLoggingAction();
 
         console.log('Assert Created Action');
-        // await expect($(MacroLocators.macroactionwithName)).toHaveText('Clear Log');
-        // await expect($(MacroLocators.macroactionwithDetails)).toHaveText('System Log');
-        await page.softAssert(async() => await expect($(MacroLocators.macroactionwithName)).toHaveText('Clear Log'));
-        await page.softAssert(async() => await expect($(MacroLocators.macroactionwithDetails)).toHaveText('System Log'));
+        await page.softAssert(async () => await expect($(MacroLocators.macroactionwithName)).toHaveText(data.actionName));
+        await page.softAssert(async () => await expect($(MacroLocators.macroactionwithDetails)).toHaveText(data.actionDetails));
 
         console.log('Add Constraint - Airplane Mode Disabled');
         await MacroPage.addConstraint();
         await ConstraintsPage.selectAirplaneModeConstraint();
 
         console.log('Assert Created Constraint');
-        // await expect($(MacroLocators.macroconstraintswithName)).toHaveText('Airplane Mode Disabled');
-        await page.softAssert(async() => await expect($(MacroLocators.macroconstraintswithName)).toHaveText('Airplane Mode Disabled'));
-
+        await page.softAssert(async () => await expect($(MacroLocators.macroconstraintswithName)).toHaveText(data.constraintName));
 
         console.log('Add Local Variable - Test Case');
         await MacroPage.addLocalVariable();
-        await LocalVarPage.addIntegerVariable('Test Case');
+        await LocalVarPage.addIntegerVariable(data.localVarName);
 
         console.log('Assert Created Local Variable Name');
-        // await expect($(MacroLocators.localVarwithName)).toHaveText('Test Case');
-        await page.softAssert(async() => await expect($(MacroLocators.localVarwithName)).toHaveText('Test Case'));
-
+        await page.softAssert(async () => await expect($(MacroLocators.localVarwithName)).toHaveText(data.localVarName));
 
         console.log('Add Local Variable - Value');
-        await LocalVarPage.inputIntegerVariable('1');
+        await LocalVarPage.inputIntegerVariable(data.localVarValue);
 
         console.log('Assert Created Local Variable Value');
-        // await expect($(MacroLocators.localVarwithDetails)).toHaveText('1');
-        page.softAssert(async() => await expect($(MacroLocators.localVarwithDetails)).toHaveText('1'));
+        await page.softAssert(async () => await expect($(MacroLocators.localVarwithDetails)).toHaveText(data.localVarValue));
 
         page.checkSoftAssertions();
-
     });
 
-    it('TC2: Verify that the user is able to add an action blocks (add 3 action blocks)', async () => {
+    it('TC2: Verify that the user is able to add an action block (add 3 action blocks)', async () => {
+        const data = testData.TC2;
+
         console.log('Open Macro Page');
         await ActionBlockPage.open();
-        
+
         console.log('Add Action Block');
         await ActionBlockPage.add();
-        
+
         console.log('Input Action Block Name And Description');
-        await ActionBlockPage.inputName('test name');
-        await ActionBlockPage.inputDescription('test description');
+        await ActionBlockPage.inputName(data.actionBlockName);
+        await ActionBlockPage.inputDescription(data.actionBlockDescription);
 
         console.log('Input And Add Input Variable');
-        await ActionBlockPage.addInputVariable('inputvar');
+        await ActionBlockPage.addInputVariable(data.inputVarName);
         await ActionBlockPage.editInputVariable();
 
         console.log('Assert Created Input Variable');
-        // await expect($(ActionBlockLocator.inputVarwithName)).toHaveText('inputvar');
-        // await expect($(ActionBlockLocator.inputVarwithValue)).toHaveText('Default: True');
-        await page.softAssert(async() => await expect($(ActionBlockLocator.inputVarwithName)).toHaveText('inputvar'));
-        await page.softAssert(async() => await expect($(ActionBlockLocator.inputVarwithValue)).toHaveText('Default: True'));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.inputVarwithName)).toHaveText(data.inputVarName));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.inputVarwithValue)).toHaveText(data.inputVarValue));
 
         console.log('Input And Add Action');
         await ActionBlockPage.addActions();
 
         console.log('Assert Created Action');
-        // await expect($(ActionBlockLocator.actionwithName)).toHaveText('Clear Log');
-        // await expect($(ActionBlockLocator.actionwithValue)).toHaveText('System Log');
-        await page.softAssert(async() => await expect($(ActionBlockLocator.actionwithName)).toHaveText('Clear Log'));
-        await page.softAssert(async() => await expect($(ActionBlockLocator.actionwithValue)).toHaveText('System Log'));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.actionwithName)).toHaveText(data.actionName));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.actionwithValue)).toHaveText(data.actionDetails));
 
         console.log('Input And Add Output Variable');
-        await ActionBlockPage.addOutputVariable('outputvar');
-        await ActionBlockPage.editOutputVariable('This is a testing string');
-        
+        await ActionBlockPage.addOutputVariable(data.outputVarName);
+        await ActionBlockPage.editOutputVariable(data.outputVarInput);
+
         console.log('Assert Created Output Variable');
-        // await expect($(ActionBlockLocator.outputVarwithName)).toHaveText('outputvar');
-        // await expect($(ActionBlockLocator.outputVarwithValue)).toHaveText('Default: This is a testing string');
-        await page.softAssert(async() => await expect($(ActionBlockLocator.outputVarwithName)).toHaveText('outputvar'));
-        await page.softAssert(async() => await expect($(ActionBlockLocator.outputVarwithValue)).toHaveText('Default: This is a testing string'));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.outputVarwithName)).toHaveText(data.outputVarName));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.outputVarwithValue)).toHaveText(data.outputVarValue));
 
         console.log('Tap Add Action Block Button');
         await ActionBlockPage.acceptAdd();
 
         console.log('Assert Created Action Block');
-        // await expect($(ActionBlockLocator.actionBlockName)).toHaveText('test name');
-        // await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description');
-        await page.softAssert(async() => await expect($(ActionBlockLocator.actionBlockName)).toHaveText('test name'));
-        await page.softAssert(async() => await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description'));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.actionBlockName)).toHaveText(data.actionBlockName));
+        await page.softAssert(async () => await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText(data.actionBlockDescription));
 
         page.checkSoftAssertions();
     });
 
     it('TC3: Verify that the user is able to add a macro with Macro Wizard (add Triggers and Actions without Constraints)', async () => {
+        const data = testData.TC3;
+
         console.log('Tap On Add Macro Wizard Button');
         await MacroWizardPage.open();
-        
+
         console.log('Add Trigger - Change Dark Theme');
         await TriggerPage.selectChangeDarkThemeTrigger();
 
@@ -157,13 +154,13 @@ describe('MacroDroid Automation', () => {
         await MacroWizardPage.tapOnActionTab();
 
         console.log('Add Action - Stopwatch');
-        await ActionPage.selectStopwatchAction('stopwatch');
+        await ActionPage.selectStopwatchAction(data.actionDetails);
 
         console.log('Tap Add Macro Wizard Button');
         await MacroWizardPage.tapAcceptButton();
 
         console.log('Enter Macros Name');
-        await MacroWizardPage.enterMacroName('testing');
+        await MacroWizardPage.enterMacroName(data.macroName);
 
         console.log('Skip AD If Show');
         try { await LandingPage.skipAD(); } catch {}
@@ -174,19 +171,16 @@ describe('MacroDroid Automation', () => {
         await $(HomeLocators.macrosTab).click();
 
         console.log('Assert Created Macros On Macros Tab');
-        await expect($(HomeLocators.macrosNameText)).toHaveText('testing');
-        // await expect($(ActionBlockLocator.actionBlockDescription)).toHaveText('test description');
+        await expect($(HomeLocators.macrosNameText)).toHaveText(data.macroName);
 
         console.log('Tap On Macros Tab In Homepage');
         await $(HomeLocators.macrosNameText).click();
 
         console.log('Assert Created Trigger, Action in Macros');
-        await expect($(MacroLocators.macrotriggerwithName)).toHaveText('Dark Theme Change');
-        await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText('Disabled');
-        await expect($(MacroLocators.macroactionwithName)).toHaveText('Stopwatch (Pause)');
-        await expect($(MacroLocators.macroactionwithDetails)).toHaveText('stopwatch');
-
-        
+        await expect($(MacroLocators.macrotriggerwithName)).toHaveText(data.triggerName);
+        await expect($(MacroLocators.macrotriggerwithDetails)).toHaveText(data.triggerDetails);
+        await expect($(MacroLocators.macroactionwithName)).toHaveText(data.actionName);
+        await expect($(MacroLocators.macroactionwithDetails)).toHaveText(data.actionDetails);
     });
 
     it('TC4: Verify that the user is able to delete a macro in Macros Tab', async () => {
