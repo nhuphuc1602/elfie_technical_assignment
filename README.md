@@ -28,6 +28,7 @@ This project utilizes the following technologies:
 ✅ **HTML Reports** – Allure report generation for better visualization  
 ✅ **BDD Support** – Test scenarios written in Gherkin format  
 ✅ **Soft Assert** – Collects assertion failures without stopping test execution and reports them at the end of the test case.  
+✅ **Driven Data** – Store data in a JSON file for each test case and load it directly when running the test.    
 ✅ **Take Screenshot** – Take screenshot every time step fails and attach to Allure report, applies to Soft Assert as well.  
 
 ---
