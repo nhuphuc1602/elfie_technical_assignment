@@ -1,5 +1,5 @@
-import { MacroLocators } from '../locators/MacroLocators';
-import { HomeLocators } from '../locators/HomeLocators';
+import { MacroLocators } from '../locators/macro.locators';
+import { HomeLocators } from '../locators/home.locators';
 
 import { $ } from '@wdio/globals'
 

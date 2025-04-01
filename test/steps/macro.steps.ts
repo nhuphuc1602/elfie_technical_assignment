@@ -1,10 +1,10 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import MacroPage from '../pages/MacroPage';
-import TriggerPage from '../pages/TriggerPage';
-import ActionPage from '../pages/ActionPage';
-import ConstraintsPage from '../pages/ConstraintPage';
-import LocalVarPage from '../pages/LocalVarPage';
-import { MacroLocators } from '../locators/MacroLocators';
+import MacroPage from '../pages/macro.page';
+import TriggerPage from '../pages/trigger.page';
+import ActionPage from '../pages/action.page';
+import ConstraintsPage from '../pages/constraint.page';
+import LocalVarPage from '../pages/local-var.page';
+import { MacroLocators } from '../locators/macro.locators';
 import { expect } from '@wdio/globals';
 
 Given('the user open the Macro Page', async () => {
