@@ -17,23 +17,34 @@ class LandingPage {
 
     async skipAD() {
         await $(LandingLocators.adTitle).waitForDisplayed();
-        try {  
-            await $(LandingLocators.skipAdButton).waitForDisplayed(); 
-            await browser.pause(6000);
-            await $(LandingLocators.skipAdButton).click();
-        } catch {}
-        try {  
-            await $(LandingLocators.skipAd2Button).waitForDisplayed(); 
-            await browser.pause(6000);
-            await $(LandingLocators.skipAd2Button).click();
-        } catch {}
-        try {  
-            await $(LandingLocators.skipAd3Button).waitForDisplayed(); 
-            await browser.pause(6000);
-            await $(LandingLocators.skipAd3Button).click();
-        } catch {}
-
-    }
+            try {  
+                await $(LandingLocators.skipAdButton).waitForDisplayed(); 
+                await browser.pause(6000);
+                await $(LandingLocators.skipAdButton).click();
+                return;
+            } catch {}
+        
+            try {  
+                await $(LandingLocators.skipAd2Button).waitForDisplayed(); 
+                await browser.pause(6000);
+                await $(LandingLocators.skipAd2Button).click();
+                return;
+            } catch {}
+        
+            try {  
+                await $(LandingLocators.skipAd3Button).waitForDisplayed(); 
+                await browser.pause(6000);
+                await $(LandingLocators.skipAd3Button).click();
+                return;
+            } catch {}
+    
+            try {  
+                await $(LandingLocators.skipAd4Button).waitForDisplayed(); 
+                await browser.pause(6000);
+                await $(LandingLocators.skipAd4Button).click();
+                return;
+            } catch {}
+    }    
 
     async skipUpgrade() {
         await $(LandingLocators.upgradeNowButton).waitForDisplayed();
